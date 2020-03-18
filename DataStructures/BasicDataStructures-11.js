@@ -8,19 +8,20 @@ of the passed array such that any array nested within arr containing elem has be
 function filteredArray(arr, elem) {
   let newArr = [];
   // Only change code below this line
-  for (let j = 0; j < arr[i].length; j++) {
-    if(arr[i][j] == elem) {
-      elem_count++;
-    }
-    else if (j == arr[i].length && newArr.push(arr[i])) {
+  var elem_count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      //console.log(j, arr[i].length);
+      if(arr[i][j] == elem) {
+        elem_count++;
+      }
+      else if (j == arr[i].length-1 && elem_count == 0) {
         newArr.push(arr[i]);
-    }
-    else {
-      //newArr.push(arr[i]);
+        elem_count = 0;
+      }
     }
   }
-}
-console.log(newArr);
+  console.log(newArr);
   // Only change code above this line
   return newArr;
 }
