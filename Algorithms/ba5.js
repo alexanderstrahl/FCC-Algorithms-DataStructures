@@ -13,7 +13,6 @@ function largestOfFour(arr) {
         }
         if (j == arr[i].length-1) {
           high_arr.push(highest);
-          //console.log(high_arr);
           highest = arr[i][0];
         } 
       } 
