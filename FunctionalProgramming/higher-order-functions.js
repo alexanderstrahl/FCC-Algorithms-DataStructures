@@ -11,13 +11,8 @@ Note: Your function should not use any kind of for or while loops or the forEach
 const squareList = (arr) => {
     // Only change code below this line
     let newArr = [];
-    arr.map(item => {
-      Number.isInteger(item) && item > 0 ? newArr.push(item):newArr
-    });
-    let newNewArr = [];
-    newArr.map((item) => newNewArr.push(item *= item));
-    console.log(newArr);
-    return newNewArr;
+    arr.map(item => {Number.isInteger(item) && item > 0 ? newArr.push(item*item):newArr});
+    return newArr;
     // Only change code above this line
   };
   
