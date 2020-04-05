@@ -126,15 +126,11 @@ var watchList = [
     // Only change code below this line
     let count = 0;
     var averageRating = watchList.reduce((sum,item) => {
-      /*
       if(item["Director"] === "Christopher Nolan") {
         count++;
         console.log(sum + Number(item["imdbRating"]));
         return sum + Number(item["imdbRating"]);
-      }*/
-      item["Director"] === "Christopher Nolan" ? 
-        (count++, sum + Number(item["imdbRating"])) : sum;
-      console.log("sum",sum);
+      }
       return sum/count;
       
     }, 0);
