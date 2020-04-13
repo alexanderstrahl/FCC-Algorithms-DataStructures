@@ -1,26 +1,19 @@
 //Intermediate Algorithm Scripting: Wherefore art thou
 
 function whatIsInAName(collection, source) {
-    let sourceArr = Object.entries(source)
-    var arr = [];
-    // Only change code below this line
-    for(let i in collection){
-      //for(let j in source){
-        console.log(sourceArr)
-        console.log(collection[i].hasOwnProperty(source))
-        if(collection[i].last === source.last ||
-        collection[i].first === source.first){
-          arr.push(collection[i]);
-          //console.log(arr);//"yeet",collection[i]);
-        }
-        else{
-          arr = [] 
-        }
-      //}
-    } 
-    // Only change code above this line
-    return arr;
-  }
+  var arr = [];
+  // Only change code below this line
+    let sourceKey = Object.keys(source);
+    console.log(sourceKey)
+    return collection.filter( item => 
+      sourceKey.every(key => 
+        item.hasOwnProperty(key) && item[key] === source[key]
+      )
+    );
+  
+
+  // Only change code above this line
+}
   
   //console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" })); 
   
