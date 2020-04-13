@@ -11,7 +11,6 @@ function titleCase(str) {
   let superString = "";
   //let capitalize = str.toUpperCase();
   for(let i = 0; i < arr.length; i++) {
-    //console.log(arr_input);
     for(let j = 0; j < arr[i].length; j++) {
       if(j == 0){
         arr_input.push(arr[i][0].toUpperCase());
