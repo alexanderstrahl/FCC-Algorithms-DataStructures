@@ -7,34 +7,20 @@ Pig Latin is a way of altering English Words. The rules are as follows:
 Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
 */
 function translatePigLatin(str) {
-    let consonant = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','x','z'];
-    let vowell = ['a','e','i','o','u']
-    //console.log("BCDFGHJKLMNPQRSTVXZ".toLowerCase().split(""))
-    let arr = str.split("");
-    let letter = arr[0];
-    /*arr.map(item => {
-      if(consonant.hasOwnProperty(item)){
-        console.log("shheet")
-      }
-    })*/
-      //(consonant.hasOwnProperty(item)) ? arr.push(letter)&&arr.shift()&&console.log("hehe"):item})
-    if (arr[0] !== 'a'&&'e'&&'i'&&'o'&&'u') {
-      letter = arr[0];
-      arr.push(letter);
-      arr.shift()
-      arr.push("ay")
-      str = arr.join("")
-    }
-    else if (arr[0] == 'a'||'e'||'i'||'o'||'u') {
-      //letter = arr[0]; 
-      //arr.push(letter);
-      //arr.shift()
-      arr.push("way")
-      str = arr.join("")
-    }
-    console.log(str,arr, letter);
-    return str;
+  let pig = str;
+  let reg = /[aeiou]/gi;
+  if (str[0].match(reg)) {
+    return pig += "way";
   }
-  
-  console.log(translatePigLatin("aonsonant"));
-  translatePigLatin("eight")
+  else if (str.match(reg)) {
+    let start = str.indexOf(str.match(reg)[0]);
+    return str.substr(start) + str.substr(0, start) + "ay";
+  }
+  else { 
+    return pig += "ay";
+    }
+} 
+
+console.log(translatePigLatin("aonsonant"));
+console.log(translatePigLatin("eight"));
+console.log(translatePigLatin("glove"))
