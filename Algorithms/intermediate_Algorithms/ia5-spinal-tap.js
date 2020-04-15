@@ -2,7 +2,9 @@
 //Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
 
 function spinalCase(str) {
-    let arr = str.split(/(?=[A-Z])/).join(" ").split(/[\s_-]/).filter(item => item !== "").join("-").toLowerCase()//;
+    let arr = str.split(/(?=[A-Z])/).join(" ")
+    .split(/[\s_-]/).filter(item => item !== "")
+    .join("-").toLowerCase()//;
     return arr; 
   } 
   
