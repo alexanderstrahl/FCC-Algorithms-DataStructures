@@ -1,30 +1,22 @@
-//var flatten = [];
+//Intermediate Algorithm Scripting: Steamroller
+//Flatten a nested array. You must account for varying levels of nesting.
 function steamrollArray(arr,flatten = []) {
-  //let flaten = arr.join("")//.split("").filter(item => item != "," || "[")//.map(item => parseInt(item) != NaN ? parseInt(item):item)
-  //let flaten = []
-  //for(let i in arr){flaten.push(arr[i])}
-  let nArr = [...arr]
-  //console.log(Array.isArray(nArr[0]))
-  //console.log(nArr)
-  for(let i in nArr){
-    if(!Array.isArray(nArr[0])){
-      flatten.push(nArr[0])
-      nArr.shift()
-      //console.log("shift",flatten,"nArr:",nArr)
-    }
-    else if(Array.isArray(nArr[0])){
-      //nArr = nArr.slice(0,1)
-      //console.log(nArr[0]+nArr[1])
-      steamrollArray(nArr[0])
-    }
-    //console.log("nArr:",nArr)
-  }
-  let temp = [...flatten]
-  flatten = []
-  console.log(temp) 
-  return temp;
-}  
-
-//steamrollArray([1, [2], [3, [[4]]]]);
-steamrollArray([[["a"]], [["b"]]])
-steamrollArray([1, {}, [3, [[4]]]])
+    let nArr = [...arr]
+    nArr.map(i => {
+      if(!Array.isArray(i)){
+        flatten.push(nArr[0])
+        nArr.shift()
+      }
+      else if(Array.isArray(i)){
+        steamrollArray(i, flatten)
+      }
+    })
+    let temp = [...flatten]
+    flatten = []
+    console.log(temp) 
+    return temp;
+  }  
+  
+  steamrollArray([1, [2], [3, [[4]]]]);
+  steamrollArray([[["a"]], [["b"]]])
+  steamrollArray([1, {}, [3, [[4]]]])
