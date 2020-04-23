@@ -1,20 +1,18 @@
 //Intermediate Algorithm Scripting: Steamroller
 //Flatten a nested array. You must account for varying levels of nesting.
 function steamrollArray(arr,flatten = []) {
-    let nArr = [...arr]
-    nArr.map(i => {
+    //let nArr = [...arr]
+    arr.map(i => {
       if(!Array.isArray(i)){
-        flatten.push(nArr[0])
-        nArr.shift()
+        flatten.push(i)
+        arr.shift()
       }
       else if(Array.isArray(i)){
         steamrollArray(i, flatten)
       }
     })
-    let temp = [...flatten]
-    flatten = []
-    console.log(temp) 
-    return temp;
+    console.log(flatten) 
+    return flatten;
   }  
   
   steamrollArray([1, [2], [3, [[4]]]]);
